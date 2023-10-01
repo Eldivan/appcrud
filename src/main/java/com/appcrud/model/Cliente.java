@@ -1,13 +1,8 @@
-package com.appcrud.model;
+	package com.appcrud.model;
 
-import java.sql.Date;
-import java.time.LocalDate;
-
+import java.util.Date;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
@@ -32,8 +27,10 @@ public class Cliente {
 	@NotBlank
 	private String cpf; 
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern ="dd-MM-yyyy" )
-	private LocalDate dataNascimento;
+	@Basic
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private Date dataNascimento;
 	
 	@NotBlank
 	private String email;
@@ -66,11 +63,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public LocalDate getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
