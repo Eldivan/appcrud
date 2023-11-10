@@ -1,6 +1,9 @@
 	package com.appcrud.model;
 
 import java.util.Date;
+
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -17,25 +20,26 @@ import jakarta.persistence.TemporalType;
 @Table(name = "cliente")	
 public class Cliente {
 	
-	@Id
+	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id; 
 	
-	@NotBlank
+	@NotBlank  
+	@Size(min = 3, message = "o nome deve ter no minimo 3 caracteres")
 	private String nome; 
 	
-	@NotBlank
+	@NotBlank(message = "o cpf deve ser informado")
 	private String cpf; 
 	
 	@Basic
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 	
-	@NotBlank
+	@NotBlank(message = "o email deve ser informado")
 	private String email;
 	
-	@NotBlank
+	@NotBlank(message = "o telefone deve ser informado")
 	private String telefone;
 	
 
