@@ -4,7 +4,9 @@ import java.util.Date;
 
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Basic;
@@ -28,7 +30,8 @@ public class Cliente {
 	@Size(min = 3, message = "o nome deve ter no minimo 3 caracteres")
 	private String nome; 
 	
-	@NotBlank(message = "o cpf deve ser informado")
+	@NotBlank
+	@CPF(message = "o cpf e invalido :( !")
 	private String cpf; 
 	
 	@Basic
@@ -36,7 +39,8 @@ public class Cliente {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 	
-	@NotBlank(message = "o email deve ser informado")
+	@NotBlank
+	@Email(message = "email invalido :(")
 	private String email;
 	
 	@NotBlank(message = "o telefone deve ser informado")
