@@ -17,8 +17,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "cliente")	
 public class Cliente {
 	
@@ -26,12 +28,12 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id; 
 	
+	@Size(min = 3, message = "O nome deve ter no minimo 3 caracteres")
 	@NotBlank  
-	@Size(min = 3, message = "o nome deve ter no minimo 3 caracteres")
 	private String nome; 
 	
+	@CPF(message = " CPF invalido :( !")
 	@NotBlank
-	@CPF(message = "o cpf e invalido :( !")
 	private String cpf; 
 	
 	@Basic
@@ -39,12 +41,13 @@ public class Cliente {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 	
-	@NotBlank
 	@Email(message = "email invalido :(")
+	@NotBlank
 	private String email;
 	
-	@NotBlank(message = "o telefone deve ser informado")
+	@NotBlank
 	private String telefone;
+	
 	
 
 	public long getId() {
@@ -70,7 +73,7 @@ public class Cliente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
+	
 	public Date getDataNascimento() {
 		return dataNascimento;
 	}
@@ -94,7 +97,7 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
 	
-	
-	
+		
 }

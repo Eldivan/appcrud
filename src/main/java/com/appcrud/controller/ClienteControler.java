@@ -43,4 +43,11 @@ public class ClienteControler {
 		return "redirect:/cliente/novo";
 	}
 	
+	@GetMapping("/listar")
+	public String listarClientes(Model model) {
+		model.addAttribute("listaClientes", clienteRepository.findAll());
+		return "/listacliente";
+	}
+	
+	
 }

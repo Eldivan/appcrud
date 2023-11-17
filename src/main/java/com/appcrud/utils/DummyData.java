@@ -24,12 +24,12 @@ public class DummyData {
 	public void saveCliente() {
 		List<Cliente> listaCliente = new ArrayList<>(); 
 		Cliente cliente1 = new Cliente();
-		
+	
 		cliente1.setCpf("123");
 		cliente1.setNome("Jao");
 		cliente1.setEmail("email@email");
 		cliente1.setTelefone("3389");
-		cliente1.setDataNascimento(Date.valueOf("2000-01-01"));
+		cliente1.setDataNascimento(Date.valueOf("2000/01/01"));
 		
 		
 		listaCliente.add(cliente1);
@@ -39,4 +39,5 @@ public class DummyData {
 			System.out.println(savedCliente.getId());
 		}
 	}
+	
 }

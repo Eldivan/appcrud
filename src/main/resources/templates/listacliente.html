@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+<meta charset="UTF-8" />
+<title>Lista de Clientes	</title>
+	<link rel="icon" href="/js/favicon.jpg">
+	
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/estilo.css"/>
+	
+	<script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+	
+</head>
+
+<body>
+	
+	<h1> Lista de Clientes </h1>
+	<h1><th>Clientes</th></h1>
+	
+<divclass="container">
+<table border="1" class="table table-striped table-responsive-md">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>Nome</th>
+			<th>Telefone</th>
+			<th>Email</th>
+			<th>Data Nascimento</th>
+			<th>CPF</th>
+			
+			<th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="cliente : ${listaClientes}">
+			<td th:text="${cliente.id}"></td>
+			<td th:text="${cliente.nome}"></td>
+			<td th:text="${cliente.telefone}"></td>
+			<td th:text="${cliente.email}"></td>
+			<td th:text="${cliente.dataNascimento}"></td>
+			<td th:text="${cliente.cpf}"></td>
+	<!--		<td><a th:href="@{/cliente/{id}(id=${cliente.id})}" class="btn btn-warning">Alterar</a>
+				<a th:href="@{/cliente/excluir/{id}(id=${cliente.id})}" class="btn btn-danger">Excluir</a> -->
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>		
+	
+<div class="container">
+	<a class="btn btn-primary" href="/cliente/novo"> Novo </a>
+</div>	
+   
+</body>
+</html>

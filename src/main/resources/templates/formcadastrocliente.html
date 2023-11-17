@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8" />
@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
 	<style>
-		.message{
+		.mensagem{
 			color:red;
 		}
 	</style>
@@ -19,10 +19,11 @@
 
 <body>
 	
+	
 <div class="container">
   <div class="row">  	
     <div class="col">
-    	<h2>Cadastro de clientes</h2>
+    	<h2>Formulario de Cadastro de Clientes</h2>
     	<div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
 			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 			<span th:text="${mensagem}"></span>
@@ -81,11 +82,16 @@
 			    </div>
 			</div>
 			
-			<input  class="btn btn-primary" type="submit" value="Gravar"/>
+			<input  class="btn btn-primary" type="submit" value="Enviar"/>
+	
 		</form>
 		
     </div>
 </div>
+		<br>
+			<a class="btn btn-secondary" href="/cliente/listar"> Lista de Clientes </a>
+		
+		
 </div>
 
 
