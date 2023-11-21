@@ -28,8 +28,8 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id; 
 	
-	@Size(min = 3, message = "O nome deve ter no minimo 3 caracteres")
-	@NotBlank  
+	@NotBlank
+	@Size(min = 3, message = "O nome deve ter no minimo 3 caracteres") 
 	private String nome; 
 	
 	@CPF(message = " CPF invalido :( !")

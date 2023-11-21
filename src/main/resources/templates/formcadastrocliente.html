@@ -30,10 +30,21 @@
 		</div>
 		<form action="#" th:action="@{/cliente/salvar}" th:object="${cliente}" method="post">
 			  
+			  <div class="row mb-3">
+			    <label class="col-sm-1 col-form-label">ID:</label>
+			    <div class="col-sm-5">
+			    	<input class="form-control" type="text" th:field="*{id}" readonly > 
+			    </div>
+			    <div class="col-sm-5"> 
+			    	<span class="mensagem"  th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+			    </div>				
+			</div>
+			  
+			  
 			<div class="row mb-3">
 			    <label class="col-sm-1 col-form-label">Nome:</label>
 			    <div class="col-sm-5">
-			    	<input class="form-control" type="text" th:field="*{nome}"> 
+			    	<input class="form-control" type="text" th:field="*{nome}" placeholder="NOME" required> 
 			    </div>
 			    <div class="col-sm-5"> 
 			    	<span class="mensagem" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
@@ -43,10 +54,10 @@
 			<div class="row mb-3">
 			    <label class="col-sm-1 col-form-label">CPF:</label>
 			    <div class="col-sm-3">
-			    	<input class="form-control" type="text" th:field="*{cpf}"> 
+			    	<input class="form-control" type="text" th:field="*{cpf}" placeholder="CPF" required > 
 			    </div>
 				<div class="col-sm-5"> 
-			    	<span class="mensagem" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span>
+			    	<span class="mensagem" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" ></span>
 			    </div>
 			</div>
 			
@@ -54,7 +65,7 @@
 			<div class="row mb-3">
 			    <label class="col-sm-1 col-form-label">Data Nascimento:</label>
 			    <div class="col-sm-2">
-			    	<input class="form-control" type="text" th:field="*{dataNascimento}"> 
+			    	<input class="form-control" type="text" th:field="*{dataNascimento}" placeholder="Data Nascimento" required> 
 			    </div>
 				<div class="col-sm-5"> 
 			    	<span class="mensagem" th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"></span>
@@ -65,7 +76,7 @@
 			<div class="row mb-3">
 			    <label class="col-sm-1 col-form-label">Email:</label>
 			    <div class="col-sm-2">
-			    	<input class="form-control" type="text" th:field="*{email}"> 
+			    	<input class="form-control" type="text" th:field="*{email}" placeholder="Email" required> 
 			    </div>
 				<div class="col-sm-5"> 
 			    	<span class="mensagem" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
@@ -75,14 +86,14 @@
 			<div class="row mb-3">
 			    <label class="col-sm-1 col-form-label">Telefone:</label>
 			    <div class="col-sm-2">
-			    	<input class="form-control" type="text" th:field="*{telefone}"> 
+			    	<input class="form-control" type="text" th:field="*{telefone}" placeholder="Telefone" required> 
 			    </div>
 				<div class="col-sm-5"> 
 			    	<span class="mensagem" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></span>
 			    </div>
 			</div>
 			
-			<input  class="btn btn-primary" type="submit" value="Enviar"/>
+			<input  class="btn btn-primary" type="submit" value="Salvar"/>
 	
 		</form>
 		
@@ -90,8 +101,9 @@
 </div>
 		<br>
 			<a class="btn btn-secondary" href="/cliente/listar"> Lista de Clientes </a>
-		
-		
+		<br>
+		<br>	
+	
 </div>
 
 
