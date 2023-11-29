@@ -1,18 +1,15 @@
 package com.appcrud.utils;
 
 import java.sql.Date;
-import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.message.StructuredDataMessage.Format;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.appcrud.model.Cliente;
 import com.appcrud.repository.ClienteRepository;
-
-import jakarta.annotation.PostConstruct;
 
 @Component
 public class DummyData {

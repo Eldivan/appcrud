@@ -2,10 +2,9 @@
 
 import java.util.Date;
 
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotBlank;
+//import javax.validation.constraints.Size;
+//import org.hibernate.validator.constraints.Email;
+//import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -17,6 +16,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity
@@ -28,12 +29,12 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id; 
 	
-	@NotBlank
-	@Size(min = 3, message = "O nome deve ter no minimo 3 caracteres") 
+	@NotNull
+	@jakarta.validation.constraints.Size(min = 3, message = "O nome deve ter no minimo 3 caracteres") 
 	private String nome; 
 	
 	@CPF(message = " CPF invalido :( !")
-	@NotBlank
+	@NotNull
 	private String cpf; 
 	
 	@Basic
@@ -42,10 +43,10 @@ public class Cliente {
 	private Date dataNascimento;
 	
 	@Email(message = "email invalido :(")
-	@NotBlank
+	@NotNull
 	private String email;
 	
-	@NotBlank
+	@NotNull
 	private String telefone;
 	
 	
